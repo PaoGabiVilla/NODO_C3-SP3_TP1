@@ -20,7 +20,8 @@ export function renderizarSuperheroe(superheroe) {
     Debilidad: superheroe.debilidad,
     Poderes: superheroe.poderes,
     Aliados: superheroe.aliados,
-    Enemigos: superheroe.enemigos
+    Enemigos: superheroe.enemigos,
+    Creador: superheroe.creador
   };
 }
 

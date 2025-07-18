@@ -56,6 +56,39 @@ class SuperHeroRepository extends IRepository {
            poder: { $exists: true, $not: { $size: 1 } } // poder con al menos 2 elementos
         });
     }
-}
 
+
+//Sprint 3 tp1
+    async crearSuperheroe(datosSuperheroe){
+     
+        const nuevoHeroe = new SuperHero(datosSuperheroe);
+
+        return await nuevoHeroe.save()// guarda y retorna en una sola linea
+        /*await nuevoHeroe.save();
+        console.log(nuevoHeroe);
+        return nuevoHeroe;*/
+        }
+
+        async actualizarHeroe(id, datosActualizar) {
+        /* updateOne() o updateMany() devuelven el resultado de la operación pero no el documento actualizado
+        y findByIdAndUpdate() devuelve el documento actualizado */
+            const heroeActualizado = await SuperHero.findByIdAndUpdate(id, datosActualizar, { new: true });
+            console.log(heroeActualizado);
+            return heroeActualizado;
+            
+        }
+        async eliminarPorId(id){
+            console.log('Capa Repository - función eliminar por Id');
+            const heroeEliminado = await SuperHero.findByIdAndDelete(id);
+            console.log(heroeEliminado);
+            return heroeEliminado;
+        }
+        
+        async eliminarPorNombre(nombre){
+            console.log('Capa Repository - función eliminar por Nombre');
+            const heroeEliminado = await SuperHero.findOneAndDelete({nombreSuperHeroe: nombre});
+            console.log(heroeEliminado);
+            return heroeEliminado;
+        }
+    }
 export default new SuperHeroRepository();

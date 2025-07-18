@@ -5,7 +5,7 @@ import superHeroRoutes from './routes/superHeroRoutes.mjs';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para parsear JSON
+// Middleware para parsear JSON - para leer JSON
 app.use(express.json());
 
 // Conexión a MongoDB

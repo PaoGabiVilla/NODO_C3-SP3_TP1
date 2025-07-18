@@ -1,3 +1,4 @@
+// models/SuperHero.mjs
 import mongoose from 'mongoose';
 
 const superheroSchema = new mongoose.Schema({
